@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "mini-claude"
+version = "0.1.0"
+description = "A minimal Claude Code agent — learning project"
+authors = ["Parth Modi <parth.modi@stifel.com>"]
+packages = [{ include = "mini_claude", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+anthropic = {version = "^0.40.0", extras = ["bedrock"]}
+rich = "^13.0.0"
+pydantic-settings = "^2.0.0"
+typer = "^0.12.0"
+click = ">=7.1.1,<8.2"   # typer 0.12.x is incompatible with click 8.2+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+ruff = "^0.4.0"
+
+[tool.poetry.scripts]
+mini-claude = "mini_claude.cli:app"
+
+# ---------------------------------------------------------------------------
+# Ruff — linter + formatter (replaces black, isort, flake8 in one tool)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# E/F = pycodestyle/pyflakes, I = isort, UP = pyupgrade, B = bugbear, SIM = simplify
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["mini_claude"]
+
+[tool.ruff.lint.per-file-ignores]
+# visualizer.py contains minified HTML/JS inside f-strings — long lines are unavoidable
+"src/mini_claude/visualizer.py" = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
