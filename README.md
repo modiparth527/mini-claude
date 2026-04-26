@@ -1,5 +1,8 @@
 # Mini Claude Code
 
+<!-- After pushing to GitHub: edit README.md in the browser, drag your MP4 into
+     the editor, and GitHub will replace this comment with a hosted video URL. -->
+
 A minimal coding agent built with the Anthropic SDK on AWS Bedrock — a learning project to understand how Claude Code works under the hood.
 
 ## What it does
