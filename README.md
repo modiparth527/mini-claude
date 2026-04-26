@@ -1,3 +1,11 @@
+
+
+https://github.com/user-attachments/assets/c8ca4dd5-1eb4-461e-bab7-48be35486d75
+
+
+
+
+
 # Mini Claude Code
 
 <!-- After pushing to GitHub: edit README.md in the browser, drag your MP4 into
